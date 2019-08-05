@@ -1,23 +1,23 @@
 /* jshint esnext: true */
 /* global document */
-let canvas = document.getElementById("pixel_canvas");
-let height = document.getElementById("input_height");
-let width = document.getElementById("input_width");
-let sizePicker = document.getElementById("sizePicker");
-let color = document.getElementById("colorPicker");
+let canvasr = document.getElementById("pixel_canvas");
+let heights = document.getElementById("input_height");
+let widths = document.getElementById("input_width");
+let sizePickers = document.getElementById("sizePicker");
+let colors = document.getElementById("colorPicker");
 
-color.addEventListener("click", function(){});
+colors.addEventListener("click", function(){});
 
-sizePicker.onsubmit = function(event){
+sizePickers.onsubmit = function(event){
     event.preventDefault();
     clearGrid();
     makeGrid();
 };
 
 function makeGrid() {
-    for (let r=0; r<height.value; r++){
-        const row = canvas.insertRow(r);
-        for (let c=0; c<width.value; c++){
+    for (let r=0; r<heights.value; r++){
+        const row = canvasr.insertRow(r);
+        for (let c=0; c<widths.value; c++){
             const cell = row.insertCell(c);
             cell.addEventListener("click", fillSquare);
         }
@@ -25,8 +25,8 @@ function makeGrid() {
 }
 
 function clearGrid(){
-    while (canvas.firstChild){
-         canvas.removeChild(canvas.firstChild);
+    while (canvasr.firstChild){
+         canvasr.removeChild(canvasr.firstChild);
     }
 }
 // alternative code:
@@ -35,5 +35,5 @@ function clearGrid(){
 // }
 
 function fillSquare () {
-    this.setAttribute("style", `background-color: ${color.value}`);
+    this.setAttribute("style", `background-color: ${colors.value}`);
 }
